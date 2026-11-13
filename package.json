@@ -1,6 +1,6 @@
 {
   "name": "scholarmarker-release-engineering",
-  "version": "0.9.4beta1",
+  "version": "0.9.4beta3",
   "private": true,
   "scripts": {
     "metadata": "node scripts/metadata.cjs",
@@ -12,13 +12,13 @@
   },
   "scholarmarker": {
     "id": "scholarmarker@xino-rofi.github.io",
-    "version": "0.9.4beta1",
-    "channel": "PUBLIC_BETA_MANUAL_UPDATE_ONLY",
+    "version": "0.9.4beta3",
+    "channel": "ISOLATED_UPDATER_TEST_NOT_A_PRODUCT_RELEASE",
     "host": "10.0.8",
     "os": "WINNT",
     "policyVersion": 1,
-    "updateURL": "https://scholarmarker.invalid/r2-no-updates.json",
-    "updates": "DISABLED_INTERNAL_NO_CHANNEL"
+    "updateURL": "https://raw.githubusercontent.com/xino-rofi/ScholarMarker/beta2-updater-test-20261113/valid.json",
+    "updates": "HOST_AND_USER_CONTROLLED"
   },
   "license": "GPL-3.0-or-later"
 }

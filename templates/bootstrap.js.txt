@@ -2,7 +2,7 @@
 const IDENTITY=@@IDENTITY@@;var business=null,runtime=null,shell=null,nativePath=null,addon=null,scope=null,eventBridge=null,approved=false,starting=null;
 function install(){}function uninstall(){} // Data is deliberately retained.
 async function startup(data){if(data.id!==IDENTITY.id||data.version!==IDENTITY.version)throw Error('R2_ENTRY_IDENTITY');const early={};Services.scriptloader.loadSubScript((data.rootURI||data.resourceURI.spec)+'runtime-reader-events.js',early);eventBridge=early.SMRuntimeReaderEvents.create(Zotero.Reader,IDENTITY.id);await Zotero.initializationPromise;
- const {AddonManager}=ChromeUtils.importESModule('resource://gre/modules/AddonManager.sys.mjs');addon=await AddonManager.getAddonByID(IDENTITY.id);if(addon)addon.applyBackgroundUpdates=AddonManager.AUTOUPDATE_DISABLE;
+ const {AddonManager}=ChromeUtils.importESModule('resource://gre/modules/AddonManager.sys.mjs');addon=await AddonManager.getAddonByID(IDENTITY.id);
  if(data.id!==IDENTITY.id||data.version!==IDENTITY.version||!addon?.isActive||addon.version!==IDENTITY.version||Zotero.version!==IDENTITY.host||Services.appinfo.OS!==IDENTITY.os)throw Error('R2_UNSUPPORTED_IDENTITY_HOST');
  for(const other of await AddonManager.getAllAddons())if(other.isActive&&other.id!==IDENTITY.id&&/^scholarmarker(?:-|@)/.test(other.id))throw Error('R2_OTHER_SCHOLARMARKER_ACTIVE');
  const root=data.rootURI||data.resourceURI.spec;scope={Components};for(const name of ['runtime-admission.js','runtime-windows-path.js','runtime-shell.js'])Services.scriptloader.loadSubScript(root+name,scope);

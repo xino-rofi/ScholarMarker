@@ -54,8 +54,8 @@
     },
     {
       "name": "bootstrap.js",
-      "bytes": 6548,
-      "sha256": "d2a48c92a73561300cfce8fc316da4742a54a5084074276778f20ee703926be3"
+      "bytes": 6535,
+      "sha256": "d774df3f136e7a201f6c8013217c06d47a78bff53376634c616154ad5d92312c"
     },
     {
       "name": "config.js",
@@ -94,8 +94,8 @@
     },
     {
       "name": "manifest.json",
-      "bytes": 597,
-      "sha256": "8ace1a85a5adb8403e2f431a631b447204eecb679107e2d1ba3a2efd5b2c8c27"
+      "bytes": 645,
+      "sha256": "1beb097c12f25d9fe02c42c42dd9f36a0690b9dff6037c5ea0a819210b9d3c4e"
     },
     {
       "name": "native-highlight-hit.js",
@@ -264,8 +264,8 @@
     },
     {
       "name": "plugin.js",
-      "bytes": 82845,
-      "sha256": "10f0d328021981110415aa45d29d68a854a0cd58ff744cfa41b69dc76ff7d5f0"
+      "bytes": 82897,
+      "sha256": "4ba710a884e2a03bbb06041caf2756ff660a93d020026ed8d283f944b078e7e3"
     },
     {
       "name": "positions.js",
@@ -359,8 +359,8 @@
     },
     {
       "name": "transient-ping.js",
-      "bytes": 16221,
-      "sha256": "328b876a7b6cce2e09c7e66384bbdd10e4644a01e5635151b3d89176ba50b9af"
+      "bytes": 16489,
+      "sha256": "2776f9f6f699110a41b2cb81cf3c43d19a66992cee990565cc5981ccf2dfde9e"
     },
     {
       "name": "transient-playback.js",

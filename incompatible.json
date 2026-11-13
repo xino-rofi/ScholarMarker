@@ -1,0 +1,19 @@
+{
+  "addons": {
+    "scholarmarker@xino-rofi.github.io": {
+      "updates": [
+        {
+          "version": "0.9.4beta3",
+          "update_link": "https://raw.githubusercontent.com/xino-rofi/ScholarMarker/beta2-updater-test-20261113/TEST-ONLY-scholarmarker-0.9.4beta3.xpi",
+          "update_hash": "sha256:582e535ed5eea753c14f643e1ff9f507e6cd52db0a0cb99dc63693901d2ca23c",
+          "applications": {
+            "zotero": {
+              "strict_min_version": "999.0",
+              "strict_max_version": "999.0"
+            }
+          }
+        }
+      ]
+    }
+  }
+}
