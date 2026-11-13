@@ -1,0 +1,5 @@
+{
+  "node": "24.20.0",
+  "dependencies": "NODE_BUILTINS_ONLY",
+  "zip": "STORE_CANONICAL_V1"
+}

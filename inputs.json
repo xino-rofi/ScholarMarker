@@ -1,0 +1,376 @@
+{
+  "format": 1,
+  "baseline": "a31_FUNCTIONAL_SOURCE_MAINTAINER_APPROVED_R3D",
+  "files": [
+    {
+      "name": "COPYRIGHT-AND-PROVENANCE.md",
+      "bytes": 701,
+      "sha256": "e6bc32d5fe907bf71dd8e196d6bc0a3b69d6f70f093167aa2d764761d20f4495"
+    },
+    {
+      "name": "LICENSE",
+      "bytes": 34674,
+      "sha256": "fb981668c18a279e285fc4d83fba1e836cc84dd4daa73c9697d3cfd2d8aca6e0"
+    },
+    {
+      "name": "LICENSE-SCOPE.md",
+      "bytes": 954,
+      "sha256": "d76dce5795afac2d5acbd282996549ca40d520da09cace885be8c1dd8fa5443e"
+    },
+    {
+      "name": "THIRD-PARTY-NOTICES.md",
+      "bytes": 764,
+      "sha256": "175df7bf6e62bc9994950a1d0c5de8b2ed8898708e83139cfa36a15167a761a0"
+    },
+    {
+      "name": "asset-safety.js",
+      "bytes": 7030,
+      "sha256": "c100a2907ba802740d72546ea44ca99f2df85879f7172ad8466849e56ef83df5"
+    },
+    {
+      "name": "assets/LICENSE.txt",
+      "bytes": 324,
+      "sha256": "229168ec3783f264ccd76a89dfd407e2ffb48823229a4b31bde49b60112e7afb"
+    },
+    {
+      "name": "assets/chime.wav",
+      "bytes": 9644,
+      "sha256": "70f7afe171e5e18ce4fd64e8ee41b48e718e6d61c18c91d5b7f50cbfb2314075"
+    },
+    {
+      "name": "assets/smile.gif",
+      "bytes": 454,
+      "sha256": "4b9078732bcdaa07dabd64df86e1b4c199780ae89f89e8885fb4f0a4bb4c6f84"
+    },
+    {
+      "name": "assets/wow.gif",
+      "bytes": 454,
+      "sha256": "f620c4aeed1573ef75fe5db96262e8e4880a9c0a1460a2c8ab2ac7c8db6cc403"
+    },
+    {
+      "name": "association.js",
+      "bytes": 2715,
+      "sha256": "4d141b73cdbfcbc1fb8d86190c1d5e2e3927cab59d6cb9860c10dd8de3939734"
+    },
+    {
+      "name": "bootstrap.js",
+      "bytes": 6548,
+      "sha256": "d2a48c92a73561300cfce8fc316da4742a54a5084074276778f20ee703926be3"
+    },
+    {
+      "name": "config.js",
+      "bytes": 4382,
+      "sha256": "dc75ef643174b53d15fb640fe5d3703631c0005d2936e6642bcf0fa37bd2eacc"
+    },
+    {
+      "name": "core.js",
+      "bytes": 3964,
+      "sha256": "9890d5caed3cd4e9a815684dc45bca647b2d130435fbc37de97a7abd062ddd38"
+    },
+    {
+      "name": "custom-markers.js",
+      "bytes": 12130,
+      "sha256": "92f551875f8b155000d6cad7887166febfa977dc9d99a2f2b9a184f1c13cf23f"
+    },
+    {
+      "name": "custom-ui.js",
+      "bytes": 46795,
+      "sha256": "9b7022e5d653116f8986981f38518234f17e772d309b6c8fb8f5e6c5b4161284"
+    },
+    {
+      "name": "gif-frames.js",
+      "bytes": 5227,
+      "sha256": "405b8d3ae92f55af0d6d707bdb79d673aee2b460c72c81cf8645dfcc2364b5f8"
+    },
+    {
+      "name": "import-bytes.js",
+      "bytes": 1558,
+      "sha256": "706029d565bd3997cf85564ae6eb95918bcb27bd8eb47e7a7b04f9dab40955c8"
+    },
+    {
+      "name": "interaction.js",
+      "bytes": 1923,
+      "sha256": "9e10dae34513186f60f0a6d6d255335b91fa3a8b190b2484f7b9945e9eed74da"
+    },
+    {
+      "name": "manifest.json",
+      "bytes": 597,
+      "sha256": "8ace1a85a5adb8403e2f431a631b447204eecb679107e2d1ba3a2efd5b2c8c27"
+    },
+    {
+      "name": "native-highlight-hit.js",
+      "bytes": 13836,
+      "sha256": "05d5386feb2fb4027725b9e78ce57d905c091b7a46ab56353fe818bab0380740"
+    },
+    {
+      "name": "page-adapter.js",
+      "bytes": 3741,
+      "sha256": "ac1662027f7be6b705ded58bc141ad72ac4af1e5961d4369c17158496244fc5d"
+    },
+    {
+      "name": "page-drag.js",
+      "bytes": 8151,
+      "sha256": "3f518cd28ef24cc2f2c7adfce55e25f349fa7156cfff0afe17656486172f440c"
+    },
+    {
+      "name": "page-geometry.js",
+      "bytes": 5092,
+      "sha256": "ed4144324b1435fc8cafdf3e2375b6d9c5c04ec6eb1eba4c405b95be897d81a0"
+    },
+    {
+      "name": "page-layer.js",
+      "bytes": 10662,
+      "sha256": "27269cbf84246f7c9c592ad3d783f0a347c3fa6ee18a15371cb8ae31ad607b98"
+    },
+    {
+      "name": "ping-animation-preferences.js",
+      "bytes": 4049,
+      "sha256": "53cfe3f626a7d5e682a0040540e2b20391d6732d93813e2e41f94c7cfc1cf6c4"
+    },
+    {
+      "name": "ping-animation-ui.js",
+      "bytes": 5553,
+      "sha256": "9de03574f9b99b40993f490e4155c5a1f597c6ca962ede00554c58e2fa9c89ce"
+    },
+    {
+      "name": "ping-animation.js",
+      "bytes": 6848,
+      "sha256": "b738be5d669e4b3ba676911e1409191b1a2d5f8b7d7f017574481057356dd622"
+    },
+    {
+      "name": "ping-audio-store.js",
+      "bytes": 9406,
+      "sha256": "f86f430d44034568f316b7ee721cd3c620c5510aa7abd540908f22ce28a875ef"
+    },
+    {
+      "name": "ping-audio.js",
+      "bytes": 9939,
+      "sha256": "27d75fd073d5a35f85638175f39e4fce4091a6d078a322ff856eb7dd37e95b68"
+    },
+    {
+      "name": "ping-batch-delete-ui.js",
+      "bytes": 2763,
+      "sha256": "6faf153fa19085a5f1560e6ba29ebe762e459f78cbff8a7a90e1cc04fbd61472"
+    },
+    {
+      "name": "ping-batch-delete.js",
+      "bytes": 3174,
+      "sha256": "943c28d5d03c6ab49025c8e180e91aba5e9ae92b9b78fcce923b2d8bf6815714"
+    },
+    {
+      "name": "ping-card-commands.js",
+      "bytes": 7186,
+      "sha256": "5ed9180de08fd7af36a587c73659c636ae937ff081e15f7e1cf67eb56e9428de"
+    },
+    {
+      "name": "ping-card-mode.js",
+      "bytes": 8946,
+      "sha256": "81ffd3bf51a10dcd4964a0605ffe62f1befcc2b995fc45791e879ca58c415bbf"
+    },
+    {
+      "name": "ping-card-thumbnails.js",
+      "bytes": 6478,
+      "sha256": "44bbc7573d51ba826afafdfb899df8ccebf388fda05246caf272a19c5cddc0a8"
+    },
+    {
+      "name": "ping-hit-mode.js",
+      "bytes": 8396,
+      "sha256": "7a2b463c9adde8e20a9d10100fc74934546fe5b05fce255bc64317c360d61afa"
+    },
+    {
+      "name": "ping-linked-list.js",
+      "bytes": 4885,
+      "sha256": "8b1384dff1ad7b53f3cd0ec48f918ff5a9d93fa9146377295b5f00be5a6bc50b"
+    },
+    {
+      "name": "ping-materials.js",
+      "bytes": 3954,
+      "sha256": "079b409c7f1b758123138af16b9613dc191998cc648ac4f1b5e1778f20569481"
+    },
+    {
+      "name": "ping-media.js",
+      "bytes": 9676,
+      "sha256": "a546d62cb9217af2cb552f239922bd9588f44dc0b5498a356e1e242f4a1a2770"
+    },
+    {
+      "name": "ping-mode-status.js",
+      "bytes": 6295,
+      "sha256": "56c8886c83eebe97cc1035676f202e5f457dba009a00bc87370fc331f2678c77"
+    },
+    {
+      "name": "ping-page.js",
+      "bytes": 4386,
+      "sha256": "015dd605b23c1aa0c0b4058ac42c0f8e62e09da46250d26080cfd8ee5dc93c58"
+    },
+    {
+      "name": "ping-pdf-size-ui.js",
+      "bytes": 3709,
+      "sha256": "05b90cdf451eaeeba5fc6f9012e674e561aa3b03b10b4d2761b7d21f96d89968"
+    },
+    {
+      "name": "ping-pdf-size.js",
+      "bytes": 4559,
+      "sha256": "d01b1b3fc0fdb53cf81c58520533e4886710c25c0d2038d1a55cd12f8636ff62"
+    },
+    {
+      "name": "ping-player.js",
+      "bytes": 4355,
+      "sha256": "6d11b72cb838be5dbbe1a23e68e2e9fa50dabf601e7f35ce1ca758f7f32fe54f"
+    },
+    {
+      "name": "ping-shortcuts.js",
+      "bytes": 5639,
+      "sha256": "171830bd6f209d2f6f5fd2a8bbed84b8b3fa374735c64d75ffd336bf1f3853c9"
+    },
+    {
+      "name": "ping-sound-settings.js",
+      "bytes": 1734,
+      "sha256": "a732713e04056b96efd12c53bc9b407115c1f607c49d6d2ececa03a177028d64"
+    },
+    {
+      "name": "pinglink-command.js",
+      "bytes": 3143,
+      "sha256": "dbf445202538561c1297df73da909f9d3bed4d6ca2294bc0a2c57abee0f407b3"
+    },
+    {
+      "name": "pinglink-explicit-unlink.js",
+      "bytes": 2793,
+      "sha256": "42e91078dbe70fd08e0ce2ce73c361908175cde5b359ed43bf874dfba0f02bcf"
+    },
+    {
+      "name": "pinglink-gate.js",
+      "bytes": 1264,
+      "sha256": "f0d30742f43db88322a02dd258e1813e2698ccbaf1439818215335fbb8347248"
+    },
+    {
+      "name": "pinglink-gecko-host.js",
+      "bytes": 2126,
+      "sha256": "2fcf0e68b808f094cdd52cfe3eba28b761b2b46bbeaad822767c9384a6955d82"
+    },
+    {
+      "name": "pinglink-geometry.js",
+      "bytes": 3007,
+      "sha256": "388fde40bcf8564d82d4a1423c7913b75ec380ad9dc55b53b133089a54c1b8c1"
+    },
+    {
+      "name": "pinglink-native-order.js",
+      "bytes": 4583,
+      "sha256": "57b5c2451e24ba61717148a3d56f46cde9524ae1b38533fbe0ad6de62ddb8891"
+    },
+    {
+      "name": "pinglink-store.js",
+      "bytes": 12230,
+      "sha256": "eb1d80d250240cff9eb47fd9633f11f89195ec2087d4d1dbb67eae1afd6fa898"
+    },
+    {
+      "name": "plugin.js",
+      "bytes": 82845,
+      "sha256": "10f0d328021981110415aa45d29d68a854a0cd58ff744cfa41b69dc76ff7d5f0"
+    },
+    {
+      "name": "positions.js",
+      "bytes": 3133,
+      "sha256": "3d3a763f718cd219a14bd565ca1f48e8b428f3bd4cfc1b1bb8622edba8bcee33"
+    },
+    {
+      "name": "quick-markers.js",
+      "bytes": 2134,
+      "sha256": "99eb1dda164297b92f7fe92b070b66abfdb73033079a425b79bc63843b90224f"
+    },
+    {
+      "name": "reader-options.js",
+      "bytes": 791,
+      "sha256": "b6739dcec164e649a6c4940819c2398d20971dae36f8ee6a15574ef163c49c0c"
+    },
+    {
+      "name": "retained-interaction.js",
+      "bytes": 12325,
+      "sha256": "c07210588a5be5d0cb467c806c96e4ee07df54433a989e1b5caf642911f0b539"
+    },
+    {
+      "name": "retained-store.js",
+      "bytes": 11251,
+      "sha256": "b57a8ee3f55841304df4e2169b67eb674a70a8dcf6071d0c7bf18a50724f0daf"
+    },
+    {
+      "name": "retained-view.js",
+      "bytes": 12498,
+      "sha256": "b696db266d4b2f120de2ac1c0ddb60731e078af598d5ee13b71b6c442f69c542"
+    },
+    {
+      "name": "runtime-admission.js",
+      "bytes": 9092,
+      "sha256": "b3418ea091b92d76487553c88bbb49a92ae972fdc4f6299851df3de158293611"
+    },
+    {
+      "name": "runtime-bindings.js",
+      "bytes": 1513,
+      "sha256": "a86e8ed1201a260a535c6dacf355f5db19f5d10f7935a9cf355b30e23411d6c6"
+    },
+    {
+      "name": "runtime-custom-io.js",
+      "bytes": 4257,
+      "sha256": "fa2db7681dd7f8fed187c3c5f8a41f2045802db5afcca880623c387ad77a98de"
+    },
+    {
+      "name": "runtime-ping-media-io.js",
+      "bytes": 7222,
+      "sha256": "8468f11025010659db7a612483e8f7f11404431c055ae5208d137a768983a8e2"
+    },
+    {
+      "name": "runtime-pinglink-gecko-io.js",
+      "bytes": 5217,
+      "sha256": "b54efdc2a86befbcbe2feca5a9b6a9415f6c6f1ebfd91b3c352839ed868d6b83"
+    },
+    {
+      "name": "runtime-reader-events.js",
+      "bytes": 3023,
+      "sha256": "6141a8986b667203c8855dfef8a991e5ae2e43fce75356fbd1f8d3a6dd1192a0"
+    },
+    {
+      "name": "runtime-retained-io.js",
+      "bytes": 2227,
+      "sha256": "17360771597fc11f372fbae071ad35163264d80522599438cade19724fef2bea"
+    },
+    {
+      "name": "runtime-shell.js",
+      "bytes": 4352,
+      "sha256": "5c19b6f94fdae778c0e6bd57a0a681842400edc3200b62897367119949be3454"
+    },
+    {
+      "name": "runtime-windows-path.js",
+      "bytes": 2847,
+      "sha256": "aa56e7708becd288282d16dedf3ecbb1f5c5f5ebca50d661fc3dc74f53715190"
+    },
+    {
+      "name": "sidebar-quick-probe.js",
+      "bytes": 9330,
+      "sha256": "160fa8e1b1226ddb5fdaa11db6f5207f612dd16660cbf5dbedc610dcf40573bd"
+    },
+    {
+      "name": "sound.js",
+      "bytes": 12904,
+      "sha256": "0b8f2a25e74fe74474abe89330d3fdadf5387981bcb3612aa02dfc2e5428999a"
+    },
+    {
+      "name": "tag-display.js",
+      "bytes": 6785,
+      "sha256": "f5df2a3f9de16fa075ae05298ea4ad10f78e00b73089da6c2dd13a5ddc765489"
+    },
+    {
+      "name": "transient-ping.js",
+      "bytes": 16221,
+      "sha256": "328b876a7b6cce2e09c7e66384bbdd10e4644a01e5635151b3d89176ba50b9af"
+    },
+    {
+      "name": "transient-playback.js",
+      "bytes": 1511,
+      "sha256": "f46486011bfadc6a8a9e15966960acf77a4d8056b3d950945c874404912e45a8"
+    },
+    {
+      "name": "visual.js",
+      "bytes": 2717,
+      "sha256": "677e582960c417f148c7539f524be76a59ee50062aede7478c4719a287ae9f30"
+    }
+  ]
+}

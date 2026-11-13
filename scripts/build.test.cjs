@@ -1,0 +1,8 @@
+const {test}=require('node:test'),a=require('node:assert/strict'),fs=require('node:fs'),path=require('node:path'),{archive,crc32}=require('./zip-store.cjs'),{collect,build}=require('./build.cjs');
+test('CRC32 known standard vector',()=>a.equal(crc32(Buffer.from('123456789')),0xcbf43926));
+test('file ordering and binary output are deterministic',()=>a.ok(archive([{name:'b.js',data:'b'},{name:'a.js',data:'a'}]).equals(archive([{name:'a.js',data:'a'},{name:'b.js',data:'b'}]))));
+test('fixed valid DOS date, UTF8 and STORE independent of environment',()=>{const b=archive([{name:'a.js',data:'text'}]);a.equal(b.readUInt16LE(6),0x800);a.equal(b.readUInt16LE(8),0);a.equal(b.readUInt16LE(10),0);a.equal(b.readUInt16LE(12),0x21);});
+test('fixed central Unix file metadata and no trailing comment',()=>{const b=archive([{name:'a.js',data:'text'}]),at=30+4+4;a.equal(b.readUInt32LE(at),0x02014b50);a.equal(b.readUInt16LE(at+4),0x314);a.equal(b.readUInt32LE(at+38),0x81a40000);a.equal(b.readUInt16LE(b.length-2),0);});
+test('unsafe paths, hidden inputs and case duplicates rejected',()=>{for(const name of ['../x','/x','a/../x','.git/config','a\\b','a//b'])a.throws(()=>archive([{name,data:'x'}]));a.throws(()=>archive([{name:'A.js',data:'a'},{name:'a.js',data:'b'}]));});
+test('exact source list and single metadata source validate without runtime execution',()=>{const r=collect(path.resolve(__dirname,'..'));a.equal(r.entries.length,74);a.equal(r.identity.version,'0.9.4beta1');});
+test('repeated build never changes existing artifact bytes',()=>{const root=path.resolve(__dirname,'..'),first=build(root),second=build(root);a.equal(first.sha256,second.sha256);a.equal(first.bytes,second.bytes);a.equal(fs.readFileSync(path.join(root,first.file)).length,first.bytes);});

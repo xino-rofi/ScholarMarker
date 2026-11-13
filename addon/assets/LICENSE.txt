@@ -1,0 +1,1 @@
+New geometric GIFs and analytic triangle-wave audio: project-documented inputs in MEDIA-AUTHORING.md and scripts/generate-default-media.cjs. GPL-3.0-or-later applies to the extent licensable by the maintainer, adopted by maintainer decision for this candidate. No CC0 claim. Old unknown media and user imports are excluded.

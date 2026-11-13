@@ -1,0 +1,6 @@
+/* Scalar timing review policy. No native event provider has been verified. */
+(function(scope){'use strict';
+ const RUNTIME=Object.freeze({writeEnabled:false,reason:'NATIVE_SELECTION_COMMIT_CONTRACT_UNVERIFIED',guiEvidence:'V077_TWO_READONLY_HITS_ONLY'});
+ function evaluate(s){let reason='CONSISTENT_MODEL_ONLY';if(!s?.trustedDown||!s.trustedUp)reason='UNTRUSTED_EVENT';else if(!s.sameReader||!s.sameAttachment||!s.sameDocument||!s.samePage||!s.lifecycleValid)reason='STALE_SCOPE';else if(!s.sourceUnchanged)reason='SOURCE_PING_CHANGED';else if(s.repeated||s.consumed)reason='TOKEN_CONSUMED';else if(!s.downUnique||!s.upUnique||s.downKey!==s.upKey)reason='AMBIGUOUS_OR_CHANGED_TARGET';else if(!s.itemVerified||!s.saved||!s.editable)reason='NATIVE_ITEM_INVALID';else if(s.selectedReaderKey!==s.upKey||s.selectedViewKey!==s.upKey||s.selectedCount!==1)reason='SELECTED_CROSSCHECK_MISMATCH';else if(s.commitEventSame!==true||s.nativeCommitObserved!==true)reason='NATIVE_COMMIT_UNOBSERVED';return {status:reason==='CONSISTENT_MODEL_ONLY'?'MODEL_TARGET_CONSISTENT':'REJECTED',reason,writePermission:false};}
+ const api={runtime:()=>({...RUNTIME}),authorize:()=>false,evaluate};if(typeof module!=='undefined')module.exports=api;else scope.SMPingLinkGate=api;
+})(this);

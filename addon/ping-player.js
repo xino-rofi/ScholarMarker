@@ -1,0 +1,21 @@
+/* Shared bounded player. Each node owns at most one timer and Audio instance.
+ * GIF frames are PNG URLs; a running browser GIF is never mounted, even hidden.
+ */
+(function(scope){'use strict';
+ const errorText=e=>{try{return String(e?.name&&e.name!=='Error'?e.name+': '+(e.message||''):e?.message||e).replace(/data:[^\s"'<>]+/g,'[data omitted]').slice(0,600);}catch{return 'MEDIA_ERROR_UNREADABLE';}};
+ const A=typeof module!=='undefined'?require('./ping-audio.js'):scope.SMPingAudio;
+ function level(v){return typeof v==='number'&&Number.isFinite(v)&&v>=0&&v<=1?v:.25;}
+ function create({media,muted=()=>false,volume=()=>.25,trace=()=>{},audioFactory=(win,url)=>new A.Output(win,url)}){const players=new Map();let stopped=false;const stats={starts:0,stops:0,audioRejected:0,frames:0,audioStarted:0,gifCompleted:0};
+  function stopAudio(p){if(p.audioTimer!==undefined)p.win.clearTimeout(p.audioTimer);p.audioTimer=undefined;const a=p.audio;p.audio=null;if(a){a.onended=a.onerror=null;try{a.pause();a.removeAttribute('src');a.load();}catch{}}}
+  function stop(node){const p=players.get(node);if(!p)return;players.delete(node);if(p.timer!==null)p.win.clearTimeout(p.timer);p.timer=null;stopAudio(p);try{if(node.isConnected&&p.cover)node.src=p.cover;}catch{}stats.stops++;p.resolve?.();}
+  function play(node,markerID,guard=()=>{}){stop(node);try{guard();}catch(e){trace('MEDIA_SCOPE_REJECTED',errorText(e));return;}if(stopped||!node?.isConnected)return Promise.resolve();const m=media()?.describe(markerID);if(!m)return Promise.resolve();const p={node,win:node.ownerDocument.defaultView,cover:node.src,timer:null,audio:null,loaded:false};if(players.size>=4){trace('MEDIA_PLAYER_LIMIT');return Promise.resolve();}const done=new Promise(resolve=>p.resolve=resolve);players.set(node,p);stats.starts++;
+   Promise.resolve(media().prepare(markerID)).then(result=>{if(players.get(node)!==p)return;if(stopped||!node.isConnected){stop(node);return;}guard();if(!result||result.key!==JSON.stringify(media()?.describe(markerID))){stop(node);return;}p.loaded=true;const gif=result.gif;
+    function finish(){if(!p.audio&&p.timer===null)stop(node);}
+    if(result.audio&&!muted()){try{const audio=audioFactory(p.win,result.audio);p.audio=audio;audio.volume=level(volume());audio.loop=false;const end=()=>{if(players.get(node)!==p)return;stopAudio(p);finish();};audio.onended=end;p.audioTimer=p.win.setTimeout(()=>{trace('AUDIO_END_TIMEOUT');end();},20000);audio.onerror=()=>{trace('AUDIO_PLAY_FAILED');end();};Promise.resolve(audio.play()).then(()=>{if(players.get(node)===p&&p.audio===audio){stats.audioStarted++;trace('AUDIO_STARTED',markerID);}},e=>{if(players.get(node)===p){stats.audioRejected++;trace('AUDIO_PLAY_REJECTED',errorText(e));end();}});}catch(e){stopAudio(p);stats.audioRejected++;trace('AUDIO_UNAVAILABLE',errorText(e));}}
+    if(gif){let start=p.win.performance.now(),frame=-1;function tick(){p.timer=null;if(players.get(node)!==p||stopped||!node.isConnected){stop(node);return;}try{guard();}catch(e){trace('MEDIA_SCOPE_REJECTED',errorText(e));stop(node);return;}let elapsed=Math.max(0,p.win.performance.now()-start),end=0,i=0;for(;i<gif.delays.length;i++){end+=gif.delays[i];if(elapsed<end)break;}if(i>=gif.urls.length){stats.gifCompleted++;trace('GIF_CYCLE_COMPLETED',markerID);node.src=gif.urls[0];p.cover=gif.urls[0];finish();return;}if(frame!==i){node.src=gif.urls[i];frame=i;stats.frames++;}p.timer=p.win.setTimeout(tick,Math.max(1,end-elapsed));}tick();}else finish();
+   }).catch(e=>{trace('MEDIA_PLAY_FAILED',errorText(e));stop(node);});return done;
+  }
+  return {setVolume(value){for(const p of players.values())if(p.audio){try{p.audio.volume=level(value);}catch{trace('AUDIO_VOLUME_FAILED');}}},play,stop,stopDocument(doc){for(const node of [...players.keys()])if(node.ownerDocument===doc)stop(node);A.closeWindow(doc.defaultView);},stopAll(){for(const node of [...players.keys()])stop(node);A.closeAll();},dispose(){stopped=true;this.stopAll();},diagnostics(){return {...stats,players:players.size,timers:[...players.values()].reduce((n,p)=>n+(p.timer!==null?1:0)+(p.audioTimer!==undefined?1:0),0),audio:[...players.values()].filter(p=>!!p.audio).length,pending:[...players.values()].filter(p=>!p.loaded).length,stopped};}};
+ }
+ const api={create};if(typeof module!=='undefined')module.exports=api;else scope.SMPingPlayer=api;
+})(this);

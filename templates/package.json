@@ -1,0 +1,15 @@
+{
+  "name": "scholarmarker-release-engineering",
+  "version": "GENERATED",
+  "private": true,
+  "scripts": {
+    "metadata": "node scripts/metadata.cjs",
+    "build": "node scripts/build.cjs",
+    "test": "node --test scripts/build.test.cjs"
+  },
+  "engines": {
+    "node": "24.20.0"
+  },
+  "scholarmarker": {},
+  "license": "GPL-3.0-or-later"
+}
