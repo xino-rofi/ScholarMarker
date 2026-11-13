@@ -1,0 +1,20 @@
+node_modules/
+dist/
+artifacts/
+profile/
+data/
+isolated/
+N[0-9]*/
+native/
+reports/
+*.sqlite*
+*.log
+*.xpi
+*grant*
+mutation.lock/
+*.intent
+*.journal
+*.tmp
+.env*
+
+# Defense in depth only: export uses an explicit whitelist.

@@ -1,10 +1,10 @@
 {
   "id": "scholarmarker@xino-rofi.github.io",
-  "version": "0.9.4beta1",
-  "channel": "PUBLIC_BETA_MANUAL_UPDATE_ONLY",
+  "version": "0.9.4beta2",
+  "channel": "BETA2_PRIVATE_CANDIDATE",
   "host": "10.0.8",
   "os": "WINNT",
   "policyVersion": 1,
-  "updateURL": "https://scholarmarker.invalid/r2-no-updates.json",
-  "updates": "DISABLED_INTERNAL_NO_CHANNEL"
+  "updateURL": "https://raw.githubusercontent.com/xino-rofi/ScholarMarker/main/updates.json",
+  "updates": "HOST_AND_USER_CONTROLLED"
 }

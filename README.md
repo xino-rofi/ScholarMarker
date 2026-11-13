@@ -16,9 +16,9 @@ ScholarMarker adds material-based Pings to Zotero's PDF Reader: place images or 
 
 ## 环境 / Compatibility
 
-目前仅验证 **Windows / Zotero 10.0.8**。其他宿主版本、macOS和Linux未支持；不承诺跨平台、云同步或自动更新。
+目前仅验证 **Windows / Zotero 10.0.8**。其他宿主版本、macOS和Linux未支持；不承诺跨平台或云同步。Beta 2支持Zotero后续版本更新，是否自动安装取决于宿主与插件的更新设置。
 
-Tested only on **Windows with Zotero 10.0.8**. Other versions/platforms are unsupported. No cloud-sync or automatic-update support is claimed.
+Tested only on **Windows with Zotero 10.0.8**. Other versions/platforms are unsupported. No cloud-sync support is claimed. Beta 2 supports Zotero updates for future versions, subject to host and per-plugin settings.
 
 ## 安装 / Install
 
@@ -37,6 +37,14 @@ Download the XPI from Releases, then open **Tools → Plugins** in Zotero and dr
 
 Open **Ping → My Pings**, import a material and expand its settings. Assign a supported shortcut, hover over the PDF and focus the reading area before triggering it. The retained-Ping setting controls persistence. To link a retained Ping, use its context menu and explicitly confirm the target highlight card. The management tab handles Pings in the current PDF only.
 
+## Beta 1 → Beta 2
+
+Beta 1用户需要从[Beta 2 Release](https://github.com/xino-rofi/ScholarMarker/releases/tag/v0.9.4-beta.2)下载XPI，手动原位安装一次，无需先卸载。保持相同profile和正式插件ID，兼容的素材、Ping、关联、尺寸及动画设置会保留。
+
+Beta 1曾关闭插件后台更新，该选择可能保留。若希望接收后续更新，请自行确认Zotero全局更新已开启，并在插件更新选项中选择Default或启用；Beta 2不会擅自改变用户选择。
+
+Beta 1 users must manually install the Beta 2 XPI once over the existing installation. Keep the same profile and plugin ID; compatible materials, Pings, links and display preferences are retained. Beta 1's update-disable setting may persist. To receive future updates, review Zotero's global and per-plugin settings yourself. Beta 2 does not override these choices.
+
 ## 本地数据 / Local data
 
 业务sidecar保存在当前Zotero profile的 `scholarmarker/` 命名空间，显示与声音等偏好保存在当前profile。首次启用需明确同意；拒绝时不建立业务库。不要手动复制owner或未知业务文件来迁移实例。未决状态会阻止继续写入，不应删锁、恢复或重复提交删除。
@@ -45,6 +53,7 @@ Business sidecars live under `scholarmarker/` in the current Zotero profile; pre
 
 ## 已知限制 / Known limitations
 
+- **轻微操作卡顿仍存在**，不影响基本使用；放置、拖动和删除未承诺提速。Mild operation stutter remains; this release does not claim a performance fix.
 - **批量删除速度偏慢**：顺序逐项确认；请等待完成，不要反复提交。Batch deletion can be slow; wait for the sequential operation to finish.
 - 仅限当前PDF的Ping管理，不是素材库或原生批注批量删除。Management is scoped to Pings in the current PDF.
 - 不自动迁移旧开发目录，不承诺降级恢复；升级前备份。No automatic migration of old development data or downgrade recovery.
