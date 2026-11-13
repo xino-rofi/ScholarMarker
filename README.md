@@ -1,6 +1,6 @@
 # ScholarMarker
 
-**让 PDF 阅读拥有自己的 Ping。 / Add your own Pings to PDF reading.**
+**让 PDF 阅读拥有自己的表情包。 / Add your own memes to PDF reading.**
 
 ScholarMarker 是 Zotero PDF 阅读器插件：将导入的图片或 GIF 放在页面上，播放动画/音效，并可关联已有原生高亮。
 
