@@ -3,7 +3,7 @@
  'use strict';
  function create({doc,itemID,version,records,association,geometry,adapter,positions=null,drag=scope.SMPageDrag,feedback=()=>{},log=()=>{},options=spec=>spec,controllerID=null}){
   const win=doc.defaultView,viewer=doc.getElementById('viewer');
-  if(!viewer||(version!=='10.0.7'&&version!=='10.0.8')||!win.MutationObserver||!win.ResizeObserver||!win.requestAnimationFrame)throw Error('Page overlay prerequisites unavailable');
+  if(!viewer||!/^10\.0\.\d+$/.test(version)||!win.MutationObserver||!win.ResizeObserver||!win.requestAnimationFrame)throw Error('Page overlay prerequisites unavailable');
   if(viewer.querySelectorAll('[data-sm-annotation]').length)throw Error('Unowned existing SM page nodes; close Reader or restart before mounting');
   let stopped=false,raf=null,editing=null,resize,observer;const pages=new Map(),listeners=[],observed=new Set(),counts={},preferred=new Map();let retryBudget=2,refreshes=0,lastTrigger='INITIAL',requested=0,observerCallbackCount=0,listenersAdded=0,listenersRemoved=0;
   const report=(code,detail={})=>{counts[code]=(counts[code]||0)+1;log('DIAGNOSTIC '+JSON.stringify({code,itemID,refresh:refreshes,trigger:lastTrigger,...detail}));};

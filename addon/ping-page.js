@@ -6,7 +6,7 @@
  function rect(node){const r=node.getBoundingClientRect();if(![r.left,r.top,r.width,r.height].every(Number.isFinite)||r.width<=0||r.height<=0)throw Error('PING_INVALID_RECT');return {left:r.left,top:r.top,width:r.width,height:r.height};}
  function frame(doc,owner){const f=doc.defaultView.frameElement;if(!f||f.ownerDocument!==owner||!f.isConnected||!same(f.contentDocument,doc))throw Error('PING_FRAME_IDENTITY');const r=rect(f);if(Math.abs(r.width-f.offsetWidth)>2||Math.abs(r.height-f.offsetHeight)>2||Math.abs(f.clientWidth-doc.documentElement.clientWidth)>2||Math.abs(f.clientHeight-doc.documentElement.clientHeight)>2)throw Error('PING_FRAME_SCALE');return {node:f,rect:r,x:r.left+f.clientLeft,y:r.top+f.clientTop};}
  function read(doc,owner,page,version){
-  if((version!=='10.0.7'&&version!=='10.0.8')||doc.documentURI!=='resource://zotero/reader/pdf/web/viewer.html'||owner.documentURI!=='resource://zotero/reader/reader.html')throw Error('PING_SCOPE');
+  if(!/^10\.0\.\d+$/.test(version)||doc.documentURI!=='resource://zotero/reader/pdf/web/viewer.html'||owner.documentURI!=='resource://zotero/reader/reader.html')throw Error('PING_SCOPE');
   if(!page||!sameOwnerDocument(page.ownerDocument,doc)||!page.isConnected)throw Error('PING_PAGE_IDENTITY');const number=Number(page.getAttribute('data-page-number'));if(!Number.isSafeInteger(number)||number<1)throw Error('PING_PAGE_NUMBER');
   const win=doc.defaultView,view=(win.wrappedJSObject||win).PDFViewerApplication?.pdfViewer?.getPageView(number-1);if(!view||view.id!==number||view.pdfPage?.pageNumber!==number||!same(view.div,page))throw Error('PING_PAGE_VIEW');
   const canvas=page.querySelector('.canvasWrapper canvas'),text=page.querySelector('.textLayer');if(!canvas||!text)throw Error('PING_PAGE_NOT_READY');

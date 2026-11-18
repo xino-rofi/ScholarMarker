@@ -5,7 +5,7 @@ function install(s,runtime){
  const Custom=s.SMCustomMarkers.Store;s.SMCustomMarkers.Store=class extends Custom{constructor(...args){super(...args);wrap(this,['create','rename','remove','assign','unassign'],'MATERIAL');}};
  const Retained=s.SMRetainedStore.Store;s.SMRetainedStore.Store=class extends Retained{constructor(...args){super(...args);wrap(this,['create'],'PING_CREATE');}};
  const Media=s.SMPingMedia.Store;s.SMPingMedia.Store=class extends Media{constructor(...args){super(...args);wrap(this,['bind','createGIF'],'MEDIA');}};
- const create=s.SMPingCardCommands.create;s.SMPingCardCommands.create=function(...args){const commands=create(...args),submit=commands.submit;commands.submit=async spec=>{await runtime.preflight(spec.kind||'LINK');return runtime.guardTask(spec.kind||'LINK',()=>submit.call(commands,spec));};return commands;};
+ const create=s.SMPingCardCommands.create;s.SMPingCardCommands.create=function(...args){const commands=create(...args),submit=commands.submit;commands.submit=async spec=>{const kind=spec.kind||'LINK';if(kind!=='MOVE'&&kind!=='DELETE'&&kind!=='LINK')await runtime.preflight(kind);return runtime.guardTask(kind,()=>submit.call(commands,spec));};return commands;};
 }
 const api={install};if(typeof module!=='undefined')module.exports=api;else scope.SMRuntimeBindings=api;
 })(this);

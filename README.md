@@ -1,5 +1,23 @@
 # ScholarMarker
 
+> Cross-platform test candidate: `0.9.4beta3pre16`, built from the Mac-tested pre4 source. The runtime allows Windows with Zotero 10.0.8 or later in the 10.0 series and macOS with Zotero 10.0.9 or later in the 10.0 series. Live GUI checks on both operating systems are pending for pre16. The Beta 2 release notes below are historical.
+
+For testing, install the candidate XPI via Zotero → Tools → Plugins → Install Plugin From File. Try a material’s saved animation with its shortcut, both as a temporary Ping and with retained Pings enabled. Then move and delete both an unlinked and a linked Ping in a test PDF. Confirm the new state after restarting Zotero.
+
+Retained Ping capacity is 100 per PDF and 300 per Zotero profile. Older builds may refuse to load the store after the earlier limits are exceeded.
+
+The Manage panel shows a deletion diagnostics button after a batch, with each item’s elapsed time and error code.
+
+To retrieve move/delete and association timings after reproducing a delay, use Zotero’s Run JavaScript window with the async option enabled:
+
+```js
+const { business } = await Zotero.ScholarMarkerR2.status();
+return JSON.stringify({
+  page: business?.retainedPing?.view?.layers.flatMap(layer => layer.interaction?.timings ?? []),
+  command: business?.cardAssociation?.commands?.history.filter(row => ['MOVE', 'DELETE', 'LINK'].includes(row.kind)),
+}, null, 2);
+```
+
 **让 PDF 阅读拥有自己的表情包。 /Bring your favorite memes into your PDFs.**
 
 ScholarMarker 是 Zotero PDF 阅读器插件：将导入的图片或 GIF 放在页面上，播放动画/音效，并可关联已有原生高亮。

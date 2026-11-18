@@ -3,7 +3,7 @@
  'use strict';
  function fail(code,message,transient=false){const error=new Error(message);error.code=code;error.transient=transient;throw error;}
  function read(doc,page,pageIndex,version){
-  if((version!=='10.0.7'&&version!=='10.0.8')||doc.documentURI!=='resource://zotero/reader/pdf/web/viewer.html')fail('INVALID_VIEWER','Unvalidated viewer/version',false);
+  if(!/^10\.0\.\d+$/.test(version)||doc.documentURI!=='resource://zotero/reader/pdf/web/viewer.html')fail('INVALID_VIEWER','Unvalidated viewer/version',false);
   const win=doc.defaultView,raw=win.wrappedJSObject||win;
   const view=raw.PDFViewerApplication?.pdfViewer?.getPageView(pageIndex);
   if(page.ownerDocument!==doc||!page.isConnected||page.getAttribute('data-page-number')!==String(pageIndex+1))fail('INVALID_GEOMETRY','Page DOM identity mismatch');

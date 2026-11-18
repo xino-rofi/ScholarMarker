@@ -2,13 +2,48 @@
 (function(scope){
  'use strict';
  const KEY='extensions.scholarmarker.pingShortcuts.v1',ID=/^m-[a-f0-9]{32}$/;
- const reserved=new Set(['A','B','C','E','F','G','I','K','L','N','O','P','R','S','T','V','W','X','Z'].map(x=>'Ctrl+Shift+Key'+x));
- function chord(value){if(typeof value!=='string')throw Error('SHORTCUT_UNSUPPORTED');if(/^(?:Shift\+)?(?:Key[A-Z]|Digit[0-9])$/.test(value))return value;if(/^Ctrl\+(?:Key[A-Z]|Digit[0-9])$/.test(value)){if(value!=='Ctrl+KeyJ')throw Error('SHORTCUT_NATIVE_RESERVED');return value;}if(!/^Ctrl\+Shift\+(Key[A-Z]|Digit[0-9])$/.test(value))throw Error('SHORTCUT_UNSUPPORTED');if(reserved.has(value))throw Error('SHORTCUT_NATIVE_RESERVED');return value;}
- function fromEvent(e){if(!e||e.isComposing||e.keyCode===229||e.repeat||e.altKey||e.metaKey||e.getModifierState?.('AltGraph')||['Dead','Process','Unidentified'].includes(e.key))throw Error('SHORTCUT_UNSUPPORTED');return chord((e.ctrlKey?'Ctrl+':'')+(e.shiftKey?'Shift+':'')+e.code);}
- function label(value){return String(value).replace(/Key([A-Z])$/,'$1').replace(/Digit([0-9])$/,'$1');}
+ const modifiers=['Ctrl','Alt','Shift','Meta'];
+ const punctuation={Backquote:'`',Minus:'-',Equal:'=',BracketLeft:'[',BracketRight:']',Backslash:'\\',Semicolon:';',Quote:"'",Comma:',',Period:'.',Slash:'/'};
+ const codes=/^(?:Key[A-Z]|Digit[0-9]|F(?:[1-9]|1[0-9]|2[0-4])|Numpad(?:[0-9]|Add|Subtract|Multiply|Divide|Decimal|Enter)|Backquote|Minus|Equal|BracketLeft|BracketRight|Backslash|Semicolon|Quote|Comma|Period|Slash|Space|Enter|Tab|Backspace|Delete|Insert|Home|End|PageUp|PageDown|Arrow(?:Up|Down|Left|Right))$/;
+ function chord(value){
+  if(typeof value!=='string')throw Error('SHORTCUT_UNSUPPORTED');
+  const parts=value.split('+'),code=parts.pop();
+  if(!codes.test(code)||parts.join('+')!==modifiers.filter(m=>parts.includes(m)).join('+'))throw Error('SHORTCUT_UNSUPPORTED');
+  return value;
+ }
+ function fromEvent(e){
+  if(!e||e.isComposing||e.keyCode===229||e.repeat||e.getModifierState?.('AltGraph')||['Dead','Process','Unidentified'].includes(e.key))throw Error('SHORTCUT_UNSUPPORTED');
+  return chord([e.ctrlKey&&'Ctrl',e.altKey&&'Alt',e.shiftKey&&'Shift',e.metaKey&&'Meta',e.code].filter(Boolean).join('+'));
+ }
+ function label(value){const parts=value.split('+'),code=parts.pop();return [...parts,punctuation[code]??code.replace(/^Key|^Digit/,'')].join('+');}
  function singleFocus(e){const d=e.target?.ownerDocument;if(d?.documentURI!=='resource://zotero/reader/pdf/web/viewer.html'||d.hidden||d.hasFocus?.()!==true)return false;const active=d.activeElement;if(active!==d.body&&!active?.closest?.('#viewer'))return false;const selection=d.defaultView?.getSelection?.();if(!selection||selection.isCollapsed!==true)return false;return true;}
- function candidate(e){if(!e||e.defaultPrevented||e.isTrusted!==true||e.target?.closest?.('input,textarea,select,button,[role="textbox"],[role="dialog"],[contenteditable]:not([contenteditable="false"])'))return false;try{const v=fromEvent(e);return !v.startsWith('Ctrl+')?singleFocus(e):true;}catch{return false;}}
- function nativeConflict(value,doc){chord(value);if(/^(?:Shift\+)?(?:Key[ADEFHNPRSTUVXYZ]|Digit[0-9])$/.test(value.replace(' ','')))return 'SHORTCUT_NATIVE_CONFLICT';const keys=doc?.querySelectorAll?.('key');if(!keys||keys.length>512)return 'SHORTCUT_NATIVE_UNKNOWN';const bits=value.split('+'),main=bits.pop().replace(/^Key|^Digit/,''),wanted=bits.sort().join('+');for(const key of Array.from(keys)){const name=String(key.getAttribute('key')||key.getAttribute('keycode')||'').toUpperCase().replace(/^VK_/,'');const raw=String(key.getAttribute('modifiers')||'').toLowerCase();if(name!==main)continue;if(/any/.test(raw))return 'SHORTCUT_NATIVE_CONFLICT';const mods=[];if(/accel|control|ctrl/.test(raw))mods.push('Ctrl');if(/shift/.test(raw))mods.push('Shift');if(/alt|meta/.test(raw))mods.push('Other');if(mods.sort().join('+')===wanted)return 'SHORTCUT_NATIVE_CONFLICT';}return null;}
+ function candidate(e){if(!e||e.defaultPrevented||e.isTrusted!==true||e.target?.closest?.('input,textarea,select,button,[role="textbox"],[role="dialog"],[contenteditable]:not([contenteditable="false"])'))return false;try{fromEvent(e);return singleFocus(e);}catch{return false;}}
+ function nativeConflict(value,doc,platform){
+  chord(value);
+  const keys=doc?.querySelectorAll?.('key');
+  if(!keys)return 'SHORTCUT_NATIVE_UNKNOWN';
+  const parts=value.split('+'),code=parts.pop(),expected=new Set(parts);
+  const char=punctuation[code]??(/^Key|^Digit/.test(code)?code.replace(/^Key|^Digit/,''):null);
+  const names={
+   Space:['SPACE'],Enter:['RETURN','ENTER'],NumpadEnter:['ENTER','RETURN'],Backspace:['BACK_SPACE'],
+   PageUp:['PAGE_UP'],PageDown:['PAGE_DOWN'],ArrowUp:['UP'],ArrowDown:['DOWN'],ArrowLeft:['LEFT'],ArrowRight:['RIGHT'],
+   NumpadAdd:['ADD'],NumpadSubtract:['SUBTRACT'],NumpadMultiply:['MULTIPLY'],NumpadDivide:['DIVIDE'],NumpadDecimal:['DECIMAL'],
+   Backquote:['BACK_QUOTE'],BracketLeft:['OPEN_BRACKET'],BracketRight:['CLOSE_BRACKET'],Quote:['QUOTE'],
+   Minus:['MINUS','SUBTRACT'],Equal:['EQUALS'],Backslash:['BACK_SLASH']
+  };
+  const aliases=names[code]??[char??code.toUpperCase()];
+  const mac=platform==='Darwin'||(!platform&&/Mac/i.test(doc.defaultView?.navigator?.platform||''));
+  const mapping={accel:mac?'Meta':'Ctrl',access:mac?'Ctrl':'Alt',control:'Ctrl',ctrl:'Ctrl',alt:'Alt',shift:'Shift',meta:'Meta',os:'Meta'};
+  for(const key of keys){
+   if(key.getAttribute('disabled')==='true')continue;
+   const nativeChar=key.getAttribute('key')?.toUpperCase(),nativeCode=key.getAttribute('keycode')?.toUpperCase().replace(/^VK_/,'');
+   if(!(nativeChar&&(nativeChar===char||code==='Space'&&nativeChar===' ')||nativeCode&&aliases.includes(nativeCode)))continue;
+   const raw=(key.getAttribute('modifiers')||'').toLowerCase().split(/[\s,]+/).filter(Boolean);
+   const required=new Set(raw.filter(m=>m!=='any').map(m=>mapping[m]??m));
+   if([...required].every(m=>expected.has(m))&&(raw.includes('any')||required.size===expected.size))return 'SHORTCUT_NATIVE_CONFLICT';
+  }
+  return null;
+ }
  const empty=debugDefault=>({schemaVersion:1,revision:0,bindings:[],debugDefault});
  class Store{
   constructor(read,write){this.read=read;this.write=write;this.capture=null;this.epoch=0;}

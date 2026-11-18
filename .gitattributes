@@ -1,0 +1,2 @@
+# Build inputs are hashed byte-for-byte. Preserve existing tracked line endings.
+* -text

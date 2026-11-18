@@ -24,8 +24,8 @@
     },
     {
       "name": "asset-safety.js",
-      "bytes": 7030,
-      "sha256": "c100a2907ba802740d72546ea44ca99f2df85879f7172ad8466849e56ef83df5"
+      "bytes": 7711,
+      "sha256": "adcea4054f0ba2d1d3cfda4f5eb662e989751d0109d8b33a32844d2592d0c807"
     },
     {
       "name": "assets/LICENSE.txt",
@@ -54,8 +54,8 @@
     },
     {
       "name": "bootstrap.js",
-      "bytes": 6494,
-      "sha256": "6cb83d0266753ec79c2ee5d808c3fa559381abedad0a61c7a521e799acb2348b"
+      "bytes": 7013,
+      "sha256": "1323f04dfccd7be91d8ec5ce4faa5946e3a7899f92d063c1405d5f6a4082d112"
     },
     {
       "name": "config.js",
@@ -74,8 +74,8 @@
     },
     {
       "name": "custom-ui.js",
-      "bytes": 46795,
-      "sha256": "9b7022e5d653116f8986981f38518234f17e772d309b6c8fb8f5e6c5b4161284"
+      "bytes": 49822,
+      "sha256": "f65bf557a1cdd71cbd2a63a87d8ad986eb9cea0dd05911c0b190d4d8812aae1a"
     },
     {
       "name": "gif-frames.js",
@@ -94,8 +94,8 @@
     },
     {
       "name": "manifest.json",
-      "bytes": 624,
-      "sha256": "f95719564188f2a66f6a3a09b0a04f9a6703027a79b096fed075fef71e8bb982"
+      "bytes": 633,
+      "sha256": "f7f2ec4998dba3ec38ac1fc0db6bca6d22594513bd9da9affc52e366bdaff0fc"
     },
     {
       "name": "native-highlight-hit.js",
@@ -104,8 +104,8 @@
     },
     {
       "name": "page-adapter.js",
-      "bytes": 3741,
-      "sha256": "ac1662027f7be6b705ded58bc141ad72ac4af1e5961d4369c17158496244fc5d"
+      "bytes": 3730,
+      "sha256": "df279ac71f8930ccb57d1ec8bf1216787cccde321bb3a8e975d8e8ea58c681d9"
     },
     {
       "name": "page-drag.js",
@@ -119,8 +119,8 @@
     },
     {
       "name": "page-layer.js",
-      "bytes": 10662,
-      "sha256": "27269cbf84246f7c9c592ad3d783f0a347c3fa6ee18a15371cb8ae31ad607b98"
+      "bytes": 10651,
+      "sha256": "b941de90addf574d768414318f49b8b45111c0ba041d9b2373513bb83eaa9775"
     },
     {
       "name": "ping-animation-preferences.js",
@@ -129,8 +129,8 @@
     },
     {
       "name": "ping-animation-ui.js",
-      "bytes": 5553,
-      "sha256": "9de03574f9b99b40993f490e4155c5a1f597c6ca962ede00554c58e2fa9c89ce"
+      "bytes": 5555,
+      "sha256": "15b2e940a9c1090b7fea340c578d4f5ad4202491c9d7ad50a20efd56d467c1b7"
     },
     {
       "name": "ping-animation.js",
@@ -139,28 +139,33 @@
     },
     {
       "name": "ping-audio-store.js",
-      "bytes": 9406,
-      "sha256": "f86f430d44034568f316b7ee721cd3c620c5510aa7abd540908f22ce28a875ef"
+      "bytes": 9569,
+      "sha256": "660512bd9ca46657de66458eec67e6f0eef662c753fb36c5820bbfbb65ef981a"
     },
     {
       "name": "ping-audio.js",
-      "bytes": 9939,
-      "sha256": "27d75fd073d5a35f85638175f39e4fce4091a6d078a322ff856eb7dd37e95b68"
+      "bytes": 10232,
+      "sha256": "6d3865b19982ffce0d6c7b10312cf45ae829ef515ed8645e833ea7011f47f36d"
     },
     {
       "name": "ping-batch-delete-ui.js",
-      "bytes": 2763,
-      "sha256": "6faf153fa19085a5f1560e6ba29ebe762e459f78cbff8a7a90e1cc04fbd61472"
+      "bytes": 4974,
+      "sha256": "918a002ab22eb060d4138eb062458a8319e9398bd9864ff7339922fb4beff86e"
     },
     {
       "name": "ping-batch-delete.js",
-      "bytes": 3174,
-      "sha256": "943c28d5d03c6ab49025c8e180e91aba5e9ae92b9b78fcce923b2d8bf6815714"
+      "bytes": 3908,
+      "sha256": "bd81b3a25497df3566fdbe52158cbf313203c4a6f583129a681c2d9f63f83252"
+    },
+    {
+      "name": "ping-capacity.js",
+      "bytes": 189,
+      "sha256": "240ac9494d82240b8943719d8e554fb1a03af7e176b0edcdd3dbe24929aa1c3e"
     },
     {
       "name": "ping-card-commands.js",
-      "bytes": 7186,
-      "sha256": "5ed9180de08fd7af36a587c73659c636ae937ff081e15f7e1cf67eb56e9428de"
+      "bytes": 9908,
+      "sha256": "ec9e9af3aabecbfd30a9eb2b0e67c2ff986345d10a0f11909930e12e5139d80b"
     },
     {
       "name": "ping-card-mode.js",
@@ -199,8 +204,8 @@
     },
     {
       "name": "ping-page.js",
-      "bytes": 4386,
-      "sha256": "015dd605b23c1aa0c0b4058ac42c0f8e62e09da46250d26080cfd8ee5dc93c58"
+      "bytes": 4375,
+      "sha256": "7dd578043a5d814e864d2c28a1c03c3394cf38af7217a3535ad94480ed4f4067"
     },
     {
       "name": "ping-pdf-size-ui.js",
@@ -214,13 +219,13 @@
     },
     {
       "name": "ping-player.js",
-      "bytes": 4355,
-      "sha256": "6d11b72cb838be5dbbe1a23e68e2e9fa50dabf601e7f35ce1ca758f7f32fe54f"
+      "bytes": 4434,
+      "sha256": "13763c87855831d9a624458b58e1c2960079c8bd4efd5e15da3d567800994115"
     },
     {
       "name": "ping-shortcuts.js",
-      "bytes": 5639,
-      "sha256": "171830bd6f209d2f6f5fd2a8bbed84b8b3fa374735c64d75ffd336bf1f3853c9"
+      "bytes": 6859,
+      "sha256": "442f9eee3c7473f13b334685f5c79d2a95fc1ceec0b8c17def9b0fa1727925e9"
     },
     {
       "name": "ping-sound-settings.js",
@@ -244,8 +249,8 @@
     },
     {
       "name": "pinglink-gecko-host.js",
-      "bytes": 2126,
-      "sha256": "2fcf0e68b808f094cdd52cfe3eba28b761b2b46bbeaad822767c9384a6955d82"
+      "bytes": 2608,
+      "sha256": "91756566a169a72a9da3ab6cd8c1e0282298b4ebd6eaba99ea685da1c827bf94"
     },
     {
       "name": "pinglink-geometry.js",
@@ -259,13 +264,13 @@
     },
     {
       "name": "pinglink-store.js",
-      "bytes": 12230,
-      "sha256": "eb1d80d250240cff9eb47fd9633f11f89195ec2087d4d1dbb67eae1afd6fa898"
+      "bytes": 15184,
+      "sha256": "9577a50e3fc9fbdaeb799114f43c033ad5009e5752e23bfd7a98e47842f60677"
     },
     {
       "name": "plugin.js",
-      "bytes": 82897,
-      "sha256": "4ba710a884e2a03bbb06041caf2756ff660a93d020026ed8d283f944b078e7e3"
+      "bytes": 83129,
+      "sha256": "f0b7fd736d36afa4506bfc3feac39ad4da16958a693a4f6fa90383d0b422b9c8"
     },
     {
       "name": "positions.js",
@@ -284,43 +289,63 @@
     },
     {
       "name": "retained-interaction.js",
-      "bytes": 12325,
-      "sha256": "c07210588a5be5d0cb467c806c96e4ee07df54433a989e1b5caf642911f0b539"
+      "bytes": 12663,
+      "sha256": "a95dd5533fcf08e293da2c9283d08407cf4a2e4409c85ad913e9485da525e4a7"
     },
     {
       "name": "retained-store.js",
-      "bytes": 11251,
-      "sha256": "b57a8ee3f55841304df4e2169b67eb674a70a8dcf6071d0c7bf18a50724f0daf"
+      "bytes": 11763,
+      "sha256": "e694bf66619e27a47b4d68736acc7546d78806717275dd016fa17cb608ac5e76"
     },
     {
       "name": "retained-view.js",
-      "bytes": 12498,
-      "sha256": "b696db266d4b2f120de2ac1c0ddb60731e078af598d5ee13b71b6c442f69c542"
+      "bytes": 12610,
+      "sha256": "774398aebd79dfcaab8b9ce64180ea23c93fa4d1314f7da6eaed5114bc217f0c"
     },
     {
       "name": "runtime-admission.js",
-      "bytes": 9092,
-      "sha256": "b3418ea091b92d76487553c88bbb49a92ae972fdc4f6299851df3de158293611"
+      "bytes": 10644,
+      "sha256": "c0bac8fbf62f0e81896388daecf315b5cf298a19bfe431ca63fb547669dcbcaa"
     },
     {
       "name": "runtime-bindings.js",
-      "bytes": 1513,
-      "sha256": "a86e8ed1201a260a535c6dacf355f5db19f5d10f7935a9cf355b30e23411d6c6"
+      "bytes": 1565,
+      "sha256": "f718c713e977a5233800a210136e7dead0ca3e88d0e743c081621cba028eff89"
     },
     {
       "name": "runtime-custom-io.js",
-      "bytes": 4257,
-      "sha256": "fa2db7681dd7f8fed187c3c5f8a41f2045802db5afcca880623c387ad77a98de"
+      "bytes": 4345,
+      "sha256": "c926c5961ee551a7199ea1e29c967c4cca28c93d66503b5f1de1832236a7a4de"
+    },
+    {
+      "name": "runtime-macos-path.js",
+      "bytes": 2642,
+      "sha256": "bcfdbad02088a04f4020f7e03a683f6d0950cf81ec61d932aef151cd4c8cb272"
+    },
+    {
+      "name": "runtime-macos-policy.js",
+      "bytes": 1931,
+      "sha256": "477b5c41018b57ef4d8deb0a3e67f9ce442bd379b386ec326568a989f8877a61"
+    },
+    {
+      "name": "runtime-paths.js",
+      "bytes": 1889,
+      "sha256": "e2c2a56f858a0acf207ffcacfea66ce2452374c85815ffd0cabefaf09aec0489"
     },
     {
       "name": "runtime-ping-media-io.js",
-      "bytes": 7222,
-      "sha256": "8468f11025010659db7a612483e8f7f11404431c055ae5208d137a768983a8e2"
+      "bytes": 7349,
+      "sha256": "6121c43e066c328de8a1f7509ce7acca8b769efba51c1397f9cce74c28c26977"
     },
     {
       "name": "runtime-pinglink-gecko-io.js",
-      "bytes": 5217,
-      "sha256": "b54efdc2a86befbcbe2feca5a9b6a9415f6c6f1ebfd91b3c352839ed868d6b83"
+      "bytes": 5928,
+      "sha256": "9e0d690ef813c6a61c6b05dcbd117b3b6eea942cd22affe4aeec12eaa25c8ada"
+    },
+    {
+      "name": "runtime-platform.js",
+      "bytes": 835,
+      "sha256": "c069538b8df6c348fe849ae36e6a32cecdbad3293997277da684e47e851a9332"
     },
     {
       "name": "runtime-reader-events.js",
@@ -329,8 +354,8 @@
     },
     {
       "name": "runtime-retained-io.js",
-      "bytes": 2227,
-      "sha256": "17360771597fc11f372fbae071ad35163264d80522599438cade19724fef2bea"
+      "bytes": 2378,
+      "sha256": "648c95e451bf8b37edab0b9ecc2b075ea87771385ae96e6e992b11cda43149b7"
     },
     {
       "name": "runtime-shell.js",
@@ -359,8 +384,8 @@
     },
     {
       "name": "transient-ping.js",
-      "bytes": 16489,
-      "sha256": "2776f9f6f699110a41b2cb81cf3c43d19a66992cee990565cc5981ccf2dfde9e"
+      "bytes": 17198,
+      "sha256": "130ae7c448be881c6cfb3da60bf85597ad0a79eb4b261977c53f6af631580ef8"
     },
     {
       "name": "transient-playback.js",

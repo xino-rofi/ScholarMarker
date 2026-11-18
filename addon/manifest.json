@@ -1,15 +1,15 @@
 {
   "manifest_version": 2,
   "name": "ScholarMarker",
-  "version": "0.9.4beta2",
-  "description": "Local PDF Pings, materials and highlight links for Windows / Zotero 10.0.8.",
+  "version": "0.9.4beta3pre16",
+  "description": "Local PDF Pings, materials and highlight links for Zotero on Windows and macOS.",
   "author": "xino-rofi (maintainer)",
   "applications": {
     "zotero": {
       "id": "scholarmarker@xino-rofi.github.io",
       "update_url": "https://raw.githubusercontent.com/xino-rofi/ScholarMarker/main/updates.json",
       "strict_min_version": "10.0.8",
-      "strict_max_version": "10.0.8"
+      "strict_max_version": "10.0.*"
     },
     "gecko": {
       "id": "scholarmarker@xino-rofi.github.io",

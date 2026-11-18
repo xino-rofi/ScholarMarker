@@ -1,0 +1,13 @@
+/* Read-only Darwin libSystem bridge. ABI/canonicality failures disable business startup. */
+(function(scope){'use strict';
+function create({Services,ChromeUtils}){if(Services.appinfo.OS!=='Darwin')throw Error('MAC_PLATFORM_REQUIRED');if(!/^(x86_64|aarch64)-/.test(Services.appinfo.XPCOMABI||''))throw Error('MAC_CPU_ABI_UNSUPPORTED');const {ctypes}=ChromeUtils.importESModule('resource://gre/modules/ctypes.sys.mjs');if(ctypes.voidptr_t.size!==8)throw Error('MAC_64BIT_REQUIRED');const lib=ctypes.open('/usr/lib/libSystem.B.dylib');
+try{const T=ctypes.StructType('SM_DARWIN_TIMESPEC',[{sec:ctypes.int64_t},{nsec:ctypes.int64_t}]),S=ctypes.StructType('SM_DARWIN_STAT64',[{dev:ctypes.int32_t},{mode:ctypes.uint16_t},{links:ctypes.uint16_t},{ino:ctypes.uint64_t},{uid:ctypes.uint32_t},{gid:ctypes.uint32_t},{rdev:ctypes.int32_t},{at:T},{mt:T},{ct:T},{bt:T},{size:ctypes.int64_t},{blocks:ctypes.int64_t},{blockSize:ctypes.int32_t},{flags:ctypes.uint32_t},{generation:ctypes.uint32_t},{spare:ctypes.int32_t},{reserved:ctypes.int64_t.array(2)}]);if(S.size!==144||T.size!==16)throw Error('MAC_STAT_ABI_UNSUPPORTED');
+ const abi=ctypes.default_abi,I=ctypes.int,C=ctypes.char.ptr,suffix=Services.appinfo.XPCOMABI.startsWith('x86_64-')?'$INODE64':'',lstat=lib.declare('lstat'+suffix,abi,I,C,S.ptr),fstat=lib.declare('fstat'+suffix,abi,I,I,S.ptr);
+ const open=lib.declare('open',abi,I,C,I,'...'),close=lib.declare('close',abi,I,I),getpath=lib.declare('fcntl',abi,I,I,I,'...');let disposed=false;
+ function record(s){const inode=ctypes.UInt64(s.ino);return {dev:Number(s.dev)>>>0,hi:ctypes.UInt64.hi(inode),lo:ctypes.UInt64.lo(inode),mode:Number(s.mode),links:Number(s.links)};}
+ function stat(path,missing){const s=S();if(lstat(path,s.address())!==0){if(missing&&ctypes.errno===2)return null;throw Error('MAC_LSTAT_FAILED');}return record(s);}
+ const native={lstat:path=>stat(path,false),maybeLstat:path=>stat(path,true),open:path=>open(path,0x00000100|0x01000000),fstat(fd){const s=S();if(fstat(fd,s.address())!==0)throw Error('MAC_FSTAT_FAILED');return record(s);},finalPath(fd){const buffer=ctypes.char.array(1024)();if(getpath(fd,50,buffer.addressOfElement(0))!==0)throw Error('MAC_F_GETPATH_FAILED');return buffer.readString();},close:fd=>close(fd),dispose(){if(!disposed){disposed=true;lib.close();}}};
+ const probe=scope.SMRuntimeMacPolicy.create(native);const a=probe.object('/'),b=probe.object('/');if(JSON.stringify(a)!==JSON.stringify(b))throw Error('MAC_NATIVE_SELF_CHECK_FAILED');return probe;
+}catch(e){lib.close();throw e;}}
+const api={create};if(typeof module!=='undefined')module.exports=api;else scope.SMRuntimeMacPath=api;
+})(this);
